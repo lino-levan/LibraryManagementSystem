@@ -3,9 +3,9 @@
  * PROJ 02: OOP ~ L.M.S.
  * SFHS ~ Mrs. Vollucci
  * 
- * Replace with Partner A's Full Name
- * Replace with Partner B's Full Name
- * Replace with Period #
+ * Lino Le Van
+ * Clarissa Chen
+ * Period 7
  */
 
 class Book {
