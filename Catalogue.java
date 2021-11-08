@@ -69,39 +69,19 @@ class Catalogue {
    * Handle case for Textbooks with multiple authors.
    */
 
-  interface bookCheck {
-    boolean check(Book book, String query);
-  }
-  
   public ArrayList<Book> findBook(int category, String query)
   {
     ArrayList<Book> out = new ArrayList<Book>();
 
-    bookCheck[] categories = {
-      new bookCheck() {
-        public boolean check(Book book, String query) {
-          return book.getTitle().contains(query);
-        }
-      },
-      new bookCheck() {
-        public boolean check(Book book, String query) {
-          return book.getAuthor().contains(query);
-        }
-      },
-      new bookCheck() {
-        public boolean check(Book book, String query) {
-          return book.getGenre().contains(query);
-        }
-      },
-      new bookCheck() {
-        public boolean check(Book book, String query) {
-          return book.getISBN().contains(query);
-        }
-      }
-    };
-
     for(Book book: books) {
-      if(categories[category-1].check(book, query)) {
+      String[] categories = {
+        book.getTitle(),
+        book.getAuthor(),
+        book.getGenre(),
+        book.getISBN()
+      };
+
+      if(categories[category-1].contains(query)) {
         out.add(book);
       }
     }
