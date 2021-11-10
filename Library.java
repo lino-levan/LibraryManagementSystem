@@ -16,13 +16,14 @@ class Library {
   private String name;
   private int numVisitors;
   private Catalogue myCatalogue;
-  private ArrayList<Member> myMembers;
-  private ArrayList<Double> memberFees;
+  private ArrayList<Member> myMembers = new ArrayList<Member>();
+  private ArrayList<Double> memberFees = new ArrayList<Double>();
   
   // Fill in this constructor (Phase D)
   public Library(String name)
   {
     // Your code here
+    this.name = name;
   }
   
   // getters (given)
@@ -60,6 +61,11 @@ class Library {
   public Member findMemberByEmail(String email)
   {
     // Your code here
+    for (Member current: getMembers()) {
+      if(current.getEmail().equals(email)) {
+        return current; 
+      }
+    }
     return null;
   }
   
@@ -73,7 +79,18 @@ class Library {
   public boolean addMember(Member newMember)
   {
     // Your code here
-    return false;
+    if (findMemberByEmail(newMember.getEmail()) != null) {
+      return false;
+    }
+
+    if(!newMember.addMemberToLibrary(this)) {
+      return false;
+    }
+
+    myMembers.add(newMember);
+    memberFees.add(0.0);
+
+    return true;
   }
     
   /* Fill in this method (Phase D)
@@ -82,6 +99,7 @@ class Library {
   public void increaseVisitorCount()
   {
     // Your code here
+    numVisitors++;
   }
 
   /* Fill in this method (Phase D)
@@ -90,6 +108,7 @@ class Library {
   public void decreaseVisitorCount()
   {
     // Your code here
+    numVisitors--;
   }
 
   /* Fill in this method (Phase E)

@@ -72,6 +72,10 @@ class Member {
   public boolean addMemberToLibrary(Library library)
   {
     // Your code here
+    if (this.library == null) {
+      this.library = library;
+      return true;
+    }
     return false;
   }
   
@@ -82,6 +86,10 @@ class Member {
   public void goToLibrary()
   {
     // Your code here
+    if(!this.atLibrary) {
+      this.atLibrary = true;
+      this.library.increaseVisitorCount();
+    }
   }
   
   /* Fill in this method (Phase D)
@@ -92,6 +100,10 @@ class Member {
   public void leaveLibrary()
   {
     // Your code here
+    if(this.atLibrary) {
+      this.atLibrary = false;
+      this.library.decreaseVisitorCount();
+    }
   }
   
 

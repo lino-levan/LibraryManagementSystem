@@ -81,7 +81,7 @@ class Catalogue {
         book.getISBN()
       };
 
-      if(categories[category-1].contains(query)) {
+      if(categories[category-1].equals(query)) {
         out.add(book);
       }
     }

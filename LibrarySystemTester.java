@@ -144,7 +144,7 @@ class LibrarySystemTester {
     part = 'D';
     scoreIndex = 3;
     problemNum = 0;
-    try {
+    // try {
       //Constructors
       Library dv = new Library("Danville Library");
       Library sf = new Library("St. Francis Library");
@@ -177,10 +177,10 @@ class LibrarySystemTester {
       allMembers.get(1).leaveLibrary();
       scores[scoreIndex] += checkValue(sf.getVisitorCount(), 1, part, 9, 1);
       
-    } catch (Exception e) {
-      System.out.println("Encountered an error on Part: "+part);
-      System.out.println(e.toString());
-    }
+    // } catch (Exception e) {
+    //   System.out.println("Encountered an error on Part: "+part);
+    //   System.out.println(e.toString());
+    // }
     System.out.println("Tests Passed for Part "+part+": "+scores[scoreIndex]+"/10");
 
     
