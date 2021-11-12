@@ -54,9 +54,10 @@ class Catalogue {
   
   public void addBook(Book book)
   {
+    System.out.println(book);
     if(!adjustQuantity(book, 1)) {
       books.add(book);
-      bookCounts.add(0);
+      bookCounts.add(1);
     }
   }
   
@@ -95,7 +96,12 @@ class Catalogue {
    */
   public int getBookCount(Book book)
   {
-    return 0; // replace this line
+    for (int i = 0; i < books.size(); i++) {
+      if (books.get(i).equals(book)) {
+        return bookCounts.get(i);
+      }
+    }
+    return -1;
   }
   
   /* Write this function (Phase I)

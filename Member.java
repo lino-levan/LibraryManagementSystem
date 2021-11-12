@@ -20,8 +20,8 @@ class Member {
   private Library library;
   private boolean atLibrary;
   // ArrayLists (given) (Phase G)
-  private ArrayList<Book> checkedOutBooks;
-  private ArrayList<LibraryDate> checkOutDates;
+  private ArrayList<Book> checkedOutBooks = new ArrayList<Book>();
+  private ArrayList<LibraryDate> checkOutDates = new ArrayList<LibraryDate>();
   
   // Fill in this constructor (Phase C)
   public Member(String name, String email)
@@ -115,7 +115,21 @@ class Member {
   
   public boolean checkOutBook(Book myBook, int month, int day, int year)
   {
-    return true; // replace this line
+    // check if user it at the library, if not return false 
+    if (!this.memberAtLibrary()) {
+      return false;
+    }
+
+    if (this.library.getCatalogue().getBookCount(myBook) <= 0) {
+      return false;
+    }
+
+    checkedOutBooks.add(myBook);
+    checkOutDates.add(new LibraryDate(month, day, year));
+
+    this.library.getCatalogue().adjustQuantity(myBook, -1);
+
+    return true; 
   }
 
   /* Fill in this method (Phase G)

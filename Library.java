@@ -15,17 +15,17 @@ class Library {
   // instance variables (given)
   private String name;
   private int numVisitors;
-  private Catalogue myCatalogue;
+  private Catalogue myCatalogue = new Catalogue();
   private ArrayList<Member> myMembers = new ArrayList<Member>();
   private ArrayList<Double> memberFees = new ArrayList<Double>();
   
   // Fill in this constructor (Phase D)
   public Library(String name)
   {
-    // Your code here
+    //catalogue is above  
     this.name = name;
   }
-  
+
   // getters (given)
   public String getName()
   {
@@ -118,8 +118,17 @@ class Library {
   
   public Double adjustFee(String email, Double amount)
   {
-    // Your code here
-    return null;
+    // find the member's index by email, if none return null
+    Member member = this.findMemberByEmail(email);
+
+    if (member == null) {
+      return null;
+    }
+
+    int indexOfMember = this.getMembers().indexOf(member);
+
+    this.getFees().set(indexOfMember, this.getFees().get(indexOfMember) + amount);
+    return this.getFees().get(indexOfMember);
   }
   
   /* Fill in this method (Phase E)
@@ -128,8 +137,17 @@ class Library {
   */
   public Double findFee(String email)
   {
-    // Your code here
-    return null;
+    // find the member's index by email, if none return null
+    Member member = this.findMemberByEmail(email);
+
+    if(member == null) {
+      return null;
+    }
+
+    int indexOfMember = this.getMembers().indexOf(member);
+    
+    // return the fee at the index we just found
+    return this.getFees().get(indexOfMember);
   }
   
   
@@ -139,7 +157,17 @@ class Library {
    */
   public ArrayList<Member> findMembersByLastName(String lastName)
   {
-	return null; // replace this line
+    // make an output list
+    ArrayList<Member> sameLastName = new ArrayList<Member>(); 
+    
+     for (Member current: getMembers()) {
+      if(current.getLastName().equals(lastName)) {
+        // add current to the output list
+        sameLastName.add(current);
+      }
+    }
+
+    return sameLastName;
   }
   
   // toString() method (given)
