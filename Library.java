@@ -3,8 +3,9 @@
  * PROJ 02: OOP ~ L.M.S.
  * SFHS ~ Mrs. Vollucci
  * 
- * Lino Le Van
- * Clarissa Chen
+ * Chen, Clarissa
+ * Le Van, Lino
+ * 
  * Period 7
  */
 

@@ -3,12 +3,15 @@
  * PROJ 02: OOP ~ L.M.S.
  * SFHS ~ Mrs. Vollucci
  * 
- * Lino Le Van
- * Clarissa Chen
+ * Chen, Clarissa
+ * Le Van, Lino
+ * 
  * Period 7
  */
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 class Catalogue {
   
@@ -82,7 +85,7 @@ class Catalogue {
         book.getISBN()
       };
 
-      if(categories[category-1].equals(query)) {
+      if(categories[category-1].contains(query)) {
         out.add(book);
       }
     }
@@ -110,7 +113,17 @@ class Catalogue {
    */
   public ArrayList<Book> findKeywordBook(String keyword)
   {
-    return null; // replace this line
+    ArrayList<Book> out = new ArrayList<Book>();
+
+    for(Book book: books) {
+      List<String> titleWords = Arrays.asList(book.getTitle().split(" "));
+
+      if(titleWords.contains(keyword)) {
+        out.add(book);
+      }
+    }
+
+    return out;
   }
   
   // Fill in the toString() method (Phase B)

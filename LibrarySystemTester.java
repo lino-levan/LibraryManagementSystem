@@ -3,8 +3,9 @@
  * PROJ 02: OOP ~ L.M.S.
  * SFHS ~ Mrs. Vollucci
  * 
- * Lino Le Van
- * Clarissa Chen
+ * Chen, Clarissa
+ * Le Van, Lino
+ * 
  * Period 7
  */
 
@@ -285,6 +286,7 @@ class LibrarySystemTester {
     scoreIndex = 7;
     problemNum = 0;
     try {
+      
       //Constructors
       
       Textbook oc = new Textbook("Oh California!", "Armento, Cordova, Alva", "California history", "978-0395930632");

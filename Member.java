@@ -3,8 +3,9 @@
  * PROJ 02: OOP ~ L.M.S.
  * SFHS ~ Mrs. Vollucci
  * 
- * Lino Le Van
- * Clarissa Chen
+ * Chen, Clarissa
+ * Le Van, Lino
+ * 
  * Period 7
  */
 
@@ -144,7 +145,28 @@ class Member {
    */
   public double returnBook(Book myBook, int month, int day, int year)
   {
-    return 0; // replace this line
+    if (!this.atLibrary) {
+      return -1;
+    }
+
+    int indexOfBook = checkedOutBooks.indexOf(myBook);
+
+    if (indexOfBook == -1) {
+      return -1;
+    }
+
+    long numDaysPast = checkOutDates.get(indexOfBook).daysPast(month, day, year);
+
+    double fee = numDaysPast <= 7 ? 0.0 : myBook.getFee() * (numDaysPast - 7);
+
+    checkedOutBooks.remove(indexOfBook);
+    checkOutDates.remove(indexOfBook);
+
+    this.library.adjustFee(this.getEmail(), fee);
+
+    this.library.getCatalogue().addBook(myBook);
+
+    return fee;
   }
   
   // given

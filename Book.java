@@ -3,8 +3,9 @@
  * PROJ 02: OOP ~ L.M.S.
  * SFHS ~ Mrs. Vollucci
  * 
- * Lino Le Van
- * Clarissa Chen
+ * Chen, Clarissa
+ * Le Van, Lino
+ * 
  * Period 7
  */
 
@@ -68,7 +69,7 @@ class Book {
    */
   public double getFee()
   {
-    return 0; // replace this line
+    return this.fee;
   }
   
   // Fill in the toString() method (Phase A)
@@ -82,6 +83,6 @@ class Book {
     out += "Genre: "+this.getGenre()+"\n";
     out += "ISBN #: "+this.getISBN();
 
-    return out; // replace this line
+    return out;
   }
 }

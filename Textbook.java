@@ -3,8 +3,9 @@
  * PROJ 02: OOP ~ L.M.S.
  * SFHS ~ Mrs. Vollucci
  * 
- * Lino Le Van
- * Clarissa Chen
+ * Chen, Clarissa
+ * Le Van, Lino
+ * 
  * Period 7
  */
 
@@ -21,20 +22,21 @@ class Textbook extends Book {
    */
   public Textbook(String title, String author, String genre, String ISBN)
   {
-    super(null, null, null, null); // Edit this line
+    super(title, author, genre, ISBN); // Edit this line
     // Add additional code here
+    this.authors = author.split(",");
   }
   
   // Fill in this setter (Phase H)
   public void setFee(double fee)
   {
-    // Your code here
+    this.fee = fee;
   }
   
   // Fill in getter for author(s) (Phase H)
   public String[] getAuthors()
   {
-    return null; // replace this line
+    return this.authors;
   }
   
   /* Fill in the toString() method (Phase H)
@@ -44,7 +46,14 @@ class Textbook extends Book {
    */
   public String toString()
   {
-    return null; // replace this line
+    String out = "";
+
+    out += "{Title: "+this.getTitle()+"}\n";
+    out += "Author(s): "+Arrays.toString(this.getAuthors())+"\n";
+    out += "Genre: "+this.getGenre()+"\n";
+    out += "ISBN #: "+this.getISBN();
+
+    return out;
   }
 }
 
